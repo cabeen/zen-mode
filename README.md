@@ -6,7 +6,7 @@ Unlike the focus modes built into individual editors, this works system-wide: pr
 
 ## Screenshots
 
-**Before:** a typical desktop, with the active window off-center and the wallpaper, Menu Bar, and Dock competing for attention.
+**Before:** a typical desktop, with the active window off-center and other app windows, the wallpaper, the Menu Bar, and the Dock all competing for attention.
 
 ![Desktop before enabling Zen Mode](screenshots/before.jpg)
 
@@ -39,9 +39,21 @@ Unlike the focus modes built into individual editors, this works system-wide: pr
    brew install --cask hammerspoon
    ```
 
-2. Grant Hammerspoon **Accessibility** permissions (`System Settings > Privacy & Security > Accessibility`).
-3. Append the contents of [`init.lua`](init.lua) from this repository to your `~/.hammerspoon/init.lua`.
-4. Click the Hammerspoon icon in the Menu Bar and select **Reload Config**.
+2. Grant Hammerspoon **Accessibility** permissions (`System Settings > Privacy & Security > Accessibility`):
+
+   <img src="screenshots/setup.step2.png" alt="Hammerspoon enabled in the Accessibility pane of System Settings" width="520">
+
+3. Append the contents of [`init.lua`](init.lua) from this repository to your `~/.hammerspoon/init.lua`:
+
+   ```sh
+   mkdir -p ~/.hammerspoon
+   curl -fsSL https://raw.githubusercontent.com/cabeen/zen-mode/main/init.lua >> ~/.hammerspoon/init.lua
+   ```
+
+4. Click the Hammerspoon icon in the Menu Bar and select **Reload Config**:
+
+   <img src="screenshots/setup.step4.png" alt="Reload Config in the Hammerspoon menu bar menu" width="280">
+
 
 ## Usage
 
