@@ -111,6 +111,8 @@ To use a different hotkey, change the modifiers and key in the `hs.hotkey.bind({
 
 ## Notes and limitations
 
+* If Accessibility access is missing — or has gone stale after a Hammerspoon update, which macOS reports as enabled but treats as revoked — the hotkey shows an alert instead of darkening the screen, so the Settings window you need stays visible. The fix for a stale grant is to remove Hammerspoon from the Accessibility list (`–` button) and re-add it.
+
 * **Tested on macOS 26 "Tahoe" only.** The Hammerspoon APIs used here are old and stable, so earlier releases should work, but they haven't been verified — and the `cornerRadius` default is tuned for Tahoe's rounder windows (drop it to ~`10` on older macOS). Reports from other versions are welcome.
 * Windows that can't be resized (e.g. some utility and settings windows) will center but keep their size; the cutout adapts to whatever the window actually does.
 * Native full-screen windows don't respond: macOS puts them in their own Space and ignores the reposition, so the window simply doesn't move. Leave full screen first. Switching Spaces while Zen Mode is active is untested territory; the hotkey or `Esc` will restore things.

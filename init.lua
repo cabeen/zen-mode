@@ -188,12 +188,25 @@ hs.hotkey.bind({"alt", "cmd"}, "z", function()
         -- If already active (or mid-transition), toggle it off
         exitZenMode()
     else
-        -- Toggle Zen Mode ON
+        -- Toggle Zen Mode ON. Check that window operations actually work
+        -- before darkening anything: without Accessibility access the
+        -- blackout canvas would still appear, burying the very Settings
+        -- window (or permission prompt) the user needs to see. A functional
+        -- test beats asking the system, which can misreport the state.
         local win = hs.window.focusedWindow()
-        if not win then return end
+        local frame = win and win:frame()
+        if not (frame and frame.w > 0 and frame.h > 0) then
+            hs.alert.show(
+                "Zen Mode: no focusable window found.\n" ..
+                "If a window is focused, Hammerspoon may be missing\n" ..
+                "Accessibility access (System Settings → Privacy & Security).",
+                3
+            )
+            return
+        end
 
         zenWindow = win
-        originalFrame = win:frame()
+        originalFrame = frame
 
         local screen = win:screen()
         local fullMax = screen:fullFrame()
