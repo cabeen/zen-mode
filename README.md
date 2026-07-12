@@ -129,7 +129,7 @@ To use a different hotkey, change the modifiers and key in the `hs.hotkey.bind({
 
 ## Author
 
-[Ryan Cabeen](https://cabeen.io/)
+[Ryan Cabeen](https://cabeen.io/), [ryan@saturnatech.com](mailto:ryan@saturnatech.com)
 
 ## License
 
